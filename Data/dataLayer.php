@@ -42,5 +42,27 @@
 		}
 	}
 
+	function attempUploadUsersUsos($user, $punt){
+
+		$conn = connectionToDataBase();
+
+		//$comment = $_POST['comment'];
+
+			$sql = "INSERT INTO Usuario (usuario,puntUsos) VALUES ('$user','$punt')";
+
+	    	
+	    	if (mysqli_query($conn, $sql)) 
+	    	{
+	    		$conn -> close();
+				return array("status" => "SUCCESS");
+			  
+			}
+			else{
+
+				$conn -> close();
+				return array("status" => "BADCONN");
+
+			} 
+	}
 
 ?>

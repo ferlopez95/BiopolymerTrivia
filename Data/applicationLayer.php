@@ -9,6 +9,8 @@ switch($action){
 
 	case "LOADQAUSOS" : loadQAFunction();
 					break;
+	case "UPLOADUSERUSOS" : uploadUserUsos();
+					break;
 }
 
 function loadQAFunction(){
@@ -18,7 +20,16 @@ function loadQAFunction(){
 	if($result["status"] == "ERROR"){
 		echo json_encode(array("message" => "Error getting information from DB!"));
 	}
+}
 
+function uploadUserUsos(){
+	$user = $_POST["user"];
+	$punt = $_POST["punt"];
+	$result = attempUploadUsersUsos($user,$punt);
+
+	if($result["status"] == "ERROR"){
+		echo json_encode(array("message" => "Error getting information from DB!"));
+	}
 }
 
 

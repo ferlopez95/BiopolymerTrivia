@@ -56,19 +56,40 @@ $(document).ready(function() {
             var num = Number(sessionStorage.preg) + 1; // Siguiente pregunta
             sessionStorage.setItem("preg",num); // Actualiza la pregunta en la que se está
 
-            // Si aun no son 5 preguntas, hace refresh al sitio para seguir con la otra
+        // Si aun no son 5 preguntas, hace refresh al sitio para seguir con la otra
             if(num <= 4){
             window.location.replace("exUsos.html");
                 }
         else{
-            windows.location.replace("puntuaciones.html");
-        }
             
-            });
+        // Cuando termina el quiz se envía el nombre y la puntuación del usuario
 
+        var punt = Number(sessionStorage.aciertos) * 250;
 
+        var jsonToSend = {
+            "action" : "UPLOADUSERUSOS",
+            "user" : sessionStorage.user,
+            "punt" : punt
+        };         
+        $.ajax({
 
+            url : "Data/applicationLayer.php",
+            type : "POST",
+            data : jsonToSend,
+            dataType : "json",
+            contentType : "application/x-www-form-urlencoded",
+            success : function(jsonResp){
+                window.location.replace("puntuaciones.html");
 
+            },
+            error: function(errorMsg){
+                console.log(errorMsg.statusText);
+            }
+
+        });
+    }
+            
+});
 
 
 
