@@ -121,12 +121,13 @@ input[type=text] {
 }
 
 /**************TABLA PUNTUACION**************************/
-#rounded-corner {
+#rounded-corner td,th,tr,table{
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 12px;
-    width: 480px;
+    width: 600px;
     text-align: left;
     border-collapse: collapse;
+    border: 1px solid black;
     margin: 20px;
         margin-top: 20px;
         margin-right: 20px;
@@ -135,5 +136,5 @@ input[type=text] {
 }
 
 #rounded-corner thead th {
-    background: #b9c9fe left -1px no-repeat;
+    background: #0276FD left -1px no-repeat;
 }

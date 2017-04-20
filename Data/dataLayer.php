@@ -69,17 +69,17 @@
 
 		$sql="";
 
+		// Solo trae a los mejores 5 personas de la base de datos
 		switch($tipoExamen)
 		{
-			case "usos" : $sql = "SELECT usuario, puntos FROM TablaUsos ORDER BY puntos";
+			case "usos" : $sql = "SELECT usuario, puntos FROM TablaUsos ORDER BY puntos DESC limit 5";
 				break;
-			case "estructuras" : $sql = "SELECT usuario, puntos FROM TablaEstructuras ORDER BY puntos";
+			case "estructuras" : $sql = "SELECT usuario, puntos FROM TablaEstructuras ORDER BY puntos DESC limit 5";
 				break;
-			case "formaciones" : $sql = "SELECT usuario, puntos FROM TablaFormaciones ORDER BY puntos";
+			case "formaciones" : $sql = "SELECT usuario, puntos FROM TablaFormaciones ORDER BY puntos DESC limit 5";
 				break;
 		}
 
-		//$sql = "SELECT usuario, puntos FROM TablaUsos ORDER BY puntos DESC";
     	$result = $conn->query($sql);
 
 		if($result->num_rows > 0){

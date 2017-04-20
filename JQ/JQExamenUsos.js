@@ -102,7 +102,7 @@ $(document).ready(function() {
 
 
 
-
+////FUNCIONES
 /********************** Funcion AZAR ARREGLO *********************/
         function shuffle (array) {
             var i = 0
