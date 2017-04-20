@@ -16,13 +16,16 @@ $(document).ready(function() {
 
         $("#buttonEstructura").on("click",function(){
             window.location.replace("exEstructura.html");
+            sessionStorage.setItem("tipoExamen","estructuras");
         });
 
         $("#buttonUsos").on("click",function(){
             window.location.replace("exUsos.html");
+            sessionStorage.setItem("tipoExamen","usos");
         });
 
         $("#buttonFormacion").on("click",function(){
             window.location.replace("exFormacion.html");
+            sessionStorage.setItem("tipoExamen","formacion");
         });
 });

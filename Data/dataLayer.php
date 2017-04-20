@@ -46,9 +46,7 @@
 
 		$conn = connectionToDataBase();
 
-		//$comment = $_POST['comment'];
-
-			$sql = "INSERT INTO Usuario (usuario,puntUsos) VALUES ('$user','$punt')";
+			$sql = "INSERT INTO TablaUsos (usuario,puntos) VALUES ('$user','$punt')";
 
 	    	
 	    	if (mysqli_query($conn, $sql)) 
@@ -63,6 +61,42 @@
 				return array("status" => "BADCONN");
 
 			} 
+	}
+/*************************** MUESTRA LAS PUNTUACIONES ************************/
+	function attemptLoadScores($user,$tipoExamen){
+		$conn = connectionToDataBase();
+		$ren = array();
+
+		$sql="";
+
+		switch($tipoExamen)
+		{
+			case "usos" : $sql = "SELECT usuario, puntos FROM TablaUsos ORDER BY puntos";
+				break;
+			case "estructuras" : $sql = "SELECT usuario, puntos FROM TablaEstructuras ORDER BY puntos";
+				break;
+			case "formaciones" : $sql = "SELECT usuario, puntos FROM TablaFormaciones ORDER BY puntos";
+				break;
+		}
+
+		//$sql = "SELECT usuario, puntos FROM TablaUsos ORDER BY puntos DESC";
+    	$result = $conn->query($sql);
+
+		if($result->num_rows > 0){
+
+			while($row = $result->fetch_assoc())
+			{
+				$response = array('usuario' => utf8_encode($row['usuario']),'puntos' => $row['puntos']);
+
+				array_push($ren,$response);
+			}
+
+			echo json_encode($ren);
+		}
+		else{
+			$conn -> close();
+			return array("status" => "ERROR");
+		} 
 	}
 
 ?>

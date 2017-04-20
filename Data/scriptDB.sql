@@ -1,8 +1,8 @@
-CREATE TABLE Usuario (
-	usuario VARCHAR(30) NOT NULL,
-    puntEstructuras INT,
-    puntUsos INT,
-    puntFormacion INT
+CREATE TABLE TablaUsos (
+    id INT NOT NULL AUTO_INCREMENT,
+    usuario VARCHAR(30),
+    puntos INT,
+    PRIMARY KEY (id)
     
 );
 

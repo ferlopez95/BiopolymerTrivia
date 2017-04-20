@@ -11,6 +11,8 @@ switch($action){
 					break;
 	case "UPLOADUSERUSOS" : uploadUserUsos();
 					break;
+	case "LOADSCORES" : loadScores();
+					break;
 }
 
 function loadQAFunction(){
@@ -32,5 +34,15 @@ function uploadUserUsos(){
 	}
 }
 
+function loadScores(){
+	$user = $_POST["user"];
+	$tipoExamen = $_POST["tipoExamen"];
+
+	$result = attemptLoadScores($user,$tipoExamen);
+
+	if($result["status"] == "ERROR"){
+		echo json_encode(array("message" => "Error getting information from DB!"));
+	}
+}
 
 ?>

@@ -20,6 +20,12 @@ $(document).ready(function() {
             success : function(jsonResp){
 
                 var n = Number(sessionStorage.preg); // Guarda la pregunta en la que se está.
+
+                // Si por alguna razon pasa el limite de preguntas disponibles, se regresa al index.
+                if (n>4){
+
+                    window.location.replace("index.html");
+                }
                 var resCorrecta = sessionStorage.setItem("resCorrecta",jsonResp[n].correcta); // Guarda la respuesta de la n pregunta, para no checar la base de datos otra vez
 
                 var arr = [jsonResp[n].correcta,jsonResp[n].d1,jsonResp[n].d2,jsonResp[n].d3]; // Arreglo con respuestas de la pregunta
@@ -35,7 +41,6 @@ $(document).ready(function() {
 
             },
             error: function(errorMsg){
-                console.log(errorMsg.statusText);
             }
         });
 
@@ -60,6 +65,7 @@ $(document).ready(function() {
             if(num <= 4){
             window.location.replace("exUsos.html");
                 }
+    //////////////////////SE GUARDA EN LA BASE DE DATOS LA PUNTUACION DEL USUARIO
         else{
             
         // Cuando termina el quiz se envía el nombre y la puntuación del usuario
@@ -79,17 +85,21 @@ $(document).ready(function() {
             dataType : "json",
             contentType : "application/x-www-form-urlencoded",
             success : function(jsonResp){
-                window.location.replace("puntuaciones.html");
 
             },
             error: function(errorMsg){
-                console.log(errorMsg.statusText);
+                window.location.replace("puntuaciones.html");
             }
 
         });
     }
             
 });
+
+
+
+
+
 
 
 
