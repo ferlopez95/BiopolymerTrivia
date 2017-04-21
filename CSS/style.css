@@ -1,5 +1,5 @@
 /****************************CSS de index.html********************************/
-#start {
+/*#start {
 
 	height: 200px;
     width: 400px;
@@ -13,16 +13,16 @@
     font-size:20pt;
 	font-family:times new roman;
 	font-weight:bold;
-}
+}*/
 
 #startInput {
 
-	height: 200px;
-    width: 400px;
+	height: 500px;
+    width: 500px;
 
     position: fixed;
-    top: 60%;
-    left: 49%;
+    top: 35%;
+    left: 45%;
     margin-top: -100px;
     margin-left: -200px;
 
