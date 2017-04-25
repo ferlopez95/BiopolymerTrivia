@@ -1,17 +1,5 @@
 $(document).ready(function() {
 
-  /********************** Cronometro para el tiempo *********************/
-  var timer = new Timer();
-  timer.start({countdown: true, startValues: {seconds: 30}});
-  $('#countdownExample .values').html(timer.getTimeValues().toString());
-  console.log("Aqui va");
-  timer.addEventListener('secondsUpdated', function (e) {
-      $('#countdownExample .values').html(timer.getTimeValues().toString());
-  });
-  timer.addEventListener('targetAchieved', function (e) {
-      $('#countdownExample .values').html('KABOOM!!');
-  });
-
     if(sessionStorage.user === undefined)
         {
 
@@ -21,7 +9,7 @@ $(document).ready(function() {
 
 /**************************Carga de Preguntas y Respuestas en el examen de USOS***********/
         var jsonToSend = {
-            "action" : "LOADQAUSOS"
+            "action" : "LOADQAFORMACION"
         };
 
         $.ajax ({
@@ -41,7 +29,7 @@ $(document).ready(function() {
                 }
                 var resCorrecta = sessionStorage.setItem("resCorrecta",jsonResp[n].correcta); // Guarda la respuesta de la n pregunta, para no checar la base de datos otra vez
 
-                var arr = [jsonResp[n].correcta,jsonResp[n].d1,jsonResp[n].d2,jsonResp[n].d3]; // Arreglo con respuestas de la pregunta
+                var arr = [jsonResp[n].correcta,jsonResp[n].d1]; // Arreglo con respuestas de la pregunta
 
                 shuffle(arr); // Cambia al azar el contenido de las casillas, en este caso las respuestas de la pregunta
 
@@ -49,8 +37,6 @@ $(document).ready(function() {
             	$("#pregunta").text(jsonResp[n].pregunta);
                 $("#r1").val(arr[0]);
                 $("#r2").val(arr[1]);
-                $("#r3").val(arr[2]);
-                $("#r4").val(arr[3]);
 
             },
             error: function(errorMsg){
@@ -79,7 +65,7 @@ $(document).ready(function() {
 
         // Si aun no son 5 preguntas, hace refresh al sitio para seguir con la otra
             if(num <= 4){
-            window.location.replace("exUsos.html");
+            window.location.replace("exFormacion.html");
                 }
     //////////////////////SE GUARDA EN LA BASE DE DATOS LA PUNTUACION DEL USUARIO
         else{

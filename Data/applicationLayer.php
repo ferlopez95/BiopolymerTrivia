@@ -13,12 +13,22 @@ switch($action){
 					break;
 	case "LOADSCORES" : loadScores();
 					break;
+	case "LOADQAFORMACION" : loadQAFormacion();
+					break;
 }
 
 function loadQAFunction(){
 
 	$result = attemptloadQA();
 
+	if($result["status"] == "ERROR"){
+		echo json_encode(array("message" => "Error getting information from DB!"));
+	}
+}
+
+function loadQAFormacion(){
+
+	$result = attemptloadQAFormacion();
 	if($result["status"] == "ERROR"){
 		echo json_encode(array("message" => "Error getting information from DB!"));
 	}

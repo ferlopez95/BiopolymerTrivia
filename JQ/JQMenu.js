@@ -28,4 +28,17 @@ $(document).ready(function() {
             window.location.replace("exFormacion.html");
             sessionStorage.setItem("tipoExamen","formacion");
         });
+
+        /********************** Cronometro para el tiempo *********************/
+        var timer = new Timer();
+        timer.start({countdown: true, startValues: {seconds: 30}});
+        $('#countdownExample .values').html(timer.getTimeValues().toString());
+        console.log("Aqui va");
+        timer.addEventListener('secondsUpdated', function (e) {
+            $('#countdownExample .values').html(timer.getTimeValues().toString());
+        });
+        timer.addEventListener('targetAchieved', function (e) {
+            $('#countdownExample .values').html('KABOOM!!');
+        });
+
 });

@@ -7,7 +7,7 @@
 		$dbname = "apis";
 
 		$conn = new mysqli($servername, $username, $password, $dbname);
-		
+
 		if ($conn->connect_error){
 			return null;
 		}
@@ -42,25 +42,51 @@
 		}
 	}
 
+	function attemptloadQAFormacion(){
+
+		$conn = connectionToDataBase();
+
+		$QA = array();
+
+		$sql = "SELECT * FROM formaciones";
+		$result = $conn->query($sql);
+
+		if($result->num_rows > 0){
+
+			while($row = $result->fetch_assoc())
+			{
+				$response = array('id' => $row['id'], 'pregunta' => utf8_encode($row['pregunta']), 'correcta' => utf8_encode($row['correcta']), 'd1' => utf8_encode($row['d1']));
+
+				array_push($QA,$response);
+			}
+
+			echo json_encode($QA);
+		}
+		else{
+			$conn -> close();
+			return array("status" => "ERROR");
+		}
+	}
+
 	function attempUploadUsersUsos($user, $punt){
 
 		$conn = connectionToDataBase();
 
 			$sql = "INSERT INTO TablaUsos (usuario,puntos) VALUES ('$user','$punt')";
 
-	    	
-	    	if (mysqli_query($conn, $sql)) 
+
+	    	if (mysqli_query($conn, $sql))
 	    	{
 	    		$conn -> close();
 				return array("status" => "SUCCESS");
-			  
+
 			}
 			else{
 
 				$conn -> close();
 				return array("status" => "BADCONN");
 
-			} 
+			}
 	}
 /*************************** MUESTRA LAS PUNTUACIONES ************************/
 	function attemptLoadScores($user,$tipoExamen){
@@ -96,7 +122,7 @@
 		else{
 			$conn -> close();
 			return array("status" => "ERROR");
-		} 
+		}
 	}
 
 ?>

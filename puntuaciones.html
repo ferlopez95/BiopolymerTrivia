@@ -3,22 +3,24 @@
 
 <html>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head> <title>Puntuaciones</title> </head>
 
 <body>
 <link href="CSS/style.css" rel="stylesheet" type="text/css">
+<link href="CSS/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="JQ/jquery.js"></script>
 <script type="text/javascript" src="JQ/JQPuntuaciones.js"></script>
+<script src="JQ/bootstrap/js/bootstrap.min.js"></script>
 
 <center>
 <h1>TOP 5 MEJORES RESULTADOS</h1>
 <div id = "table">
-<table id="rounded-corner" summary="2007 Major IT Companies' Profit">
+<table id="rounded-corner">
 	<thead>
 		<tr>
 			<th scope="col" class="rounded-company">Nombre</th>
 			<th scope="col" class="rounded-q3">Puntuación</th>
-			<th scope="col" class="rounded-q4">Tiempo</th>
 		</tr>
 	</thead>
 
@@ -27,6 +29,9 @@
 	</tbody>
 </table>
 </div>
+
+<button type="button" class="btn btn-default" onclick="location.href='menu.html'">Ir al menu</button>
+
 </center>
 
 </body>

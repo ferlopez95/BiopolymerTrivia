@@ -5,14 +5,19 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Biopolymer Trivia - Examen Usos</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biopolymer Trivia - Examen Usos</title>
 </head>
 
 <body>
 <link href="CSS/style.css" rel="stylesheet" type="text/css">
-
+<link href="CSS/sweetalert/sweetalert.css" rel="stylesheet">
+<link href="CSS/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="JQ/jquery.js"></script>
 <script type="text/javascript" src="JQ/JQExamenUsos.js"></script>
+<script type="text/javascript" src="JQ/easytimer/easytimer.min.js"></script>
+<script src="JQ/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="JQ/sweetalert/sweetalert.min.js"></script>
 
 <center><img src=".\logo.png" alt="Logo" height="160" width="480"></center>
 
@@ -25,8 +30,8 @@
 
 <div id=renglon1 style="width:50%">
 
-<span style="float:left"> <input type="submit" class="respuesta" value="" name="button" id="r1"></span> 
-<span style="float:right"> <input type="submit" class="respuesta" value="" name="button" id="r2"></span> 
+<span style="float:left"> <input type="submit" class="respuesta" value="" name="button" id="r1"></span>
+<span style="float:right"> <input type="submit" class="respuesta" value="" name="button" id="r2"></span>
 
 </div>
 
@@ -35,12 +40,18 @@
 <hr style="height:100pt; visibility:hidden;" />
 
 <center>
-<div id=renglon2 style="width:50%"> 
+<div id=renglon2 style="width:50%">
 
 <span style="float:left"> <input type="submit" class="respuesta" value="" id="r3"></span>
 <span style="float:right"> <input type="submit" class="respuesta" value="" id="r4"></span>
 
 </div>
+</center>
+
+<center>
+  <div id="countdownExample">
+    <div class="values"></div>
+  </div>
 </center>
 
 </body>

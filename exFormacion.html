@@ -5,14 +5,43 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Biopolymer Trivia - Examen</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="CSS/style.css" rel="stylesheet" type="text/css">
+<link href="CSS/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="JQ/jquery.js"></script>
+<script type="text/javascript" src="JQ/JQExamenFormacion.js"></script>
+<script src="JQ/bootstrap/js/bootstrap.min.js"></script>
+<title>Biopolymer Trivia - Examen</title>
 </head>
 
 <body>
 <link href="CSS/style.css" rel="stylesheet" type="text/css">
 
 <center><img src=".\logo.png" alt="Logo" height="160" width="480"></center>
-<center><span id="pregunta">¿Cuál es la respuesta correcta a esta pregunta?</span></center>
+
+<center><span id="pregunta"></span></center>
+
+<hr style="height:80pt; visibility:hidden;" />
+
+<center>
+
+<div id=renglon1 style="width:50%">
+
+<span style="float:left"> <input type="submit" class="respuesta" value="" name="button" id="r1"></span>
+
+</div>
+
+</center>
+
+<hr style="height:100pt; visibility:hidden;" />
+
+<center>
+<div id=renglon2 style="width:50%">
+
+<span style="float:left"> <input type="submit" class="respuesta" value="" id="r2"></span>
+
+</div>
+</center>
 
 
 </body>
